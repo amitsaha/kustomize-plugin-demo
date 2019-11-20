@@ -1,0 +1,11 @@
+namespace: myns
+nameSuffix: -qa
+bases:
+- ../base/
+patches:
+- db_migration.yaml
+images:
+- name: some/image
+  newTag: develop-{{RELEASE_TAG}}
+transformers:
+  - NameReplacer.yaml

@@ -1,0 +1,5 @@
+apiVersion: some.example.com
+kind: NameReplacer
+metadata:
+  name: name_replacer
+argsOneLiner: s/db-migration/db-migration-new/g

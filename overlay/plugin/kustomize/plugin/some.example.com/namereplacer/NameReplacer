@@ -1,0 +1,11 @@
+#!/bin/bash
+cat - > /tmp/kustomized
+#cat /tmp/kustomized | sed -e s/db-migration/db-migration-new1/g
+shift
+
+args=""
+for arg in $@; do
+	  args="$args -e $arg"
+  done
+
+  cat /tmp/kustomized | sed $args

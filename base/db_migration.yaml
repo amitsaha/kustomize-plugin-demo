@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migration
+spec:
+  template:
+    spec:
+      containers:
+        - name: db-migration
+          image: some/image
+          env:
+            - name: TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-token
+                  key: token
+      restartPolicy: OnFailure
+      nodeSelector:
+        nodegroup: "x1"

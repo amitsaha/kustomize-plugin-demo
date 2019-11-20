@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migration
+spec:
+  template:
+    spec:
+      containers:
+        - name: db-migration
+          env:
+            - name: TRUNCATE_DATABASE
+              value: "true"
+            - name: ENVIRONMENT
+              value: qa
+      nodeSelector:
+        environment: "qa"
